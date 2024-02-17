@@ -16,3 +16,8 @@ This peak finding algorithm is specifically designed for analyzing impedance cur
 - Prominence and FWHM: Once the highest peak is identified, the algorithm calculates its prominence and FWHM to evaluate its physical and analytical relevance.
 
 - Edge Case Handling: Special consideration is given to peaks at the dataset's boundaries, assessing whether a peak might continue beyond the current data range.
+
+## Reference Lecture
+The peak finding algorithm implemented in this repository is inspired by the concepts discussed in the lecture by Srini Devadas on efficient algorithms for finding peaks in datasets. The lecture provides a comprehensive overview of the algorithmic approach to identifying peaks within a matrix and its applications in various fields.
+
+For a deeper understanding of the underlying principles and methodologies, you can watch the full lecture here: Efficient Algorithms for Peak Finding - Srini Devadas.
