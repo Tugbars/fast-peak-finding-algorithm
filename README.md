@@ -7,22 +7,17 @@ This peak finding algorithm is specifically designed for analyzing impedance cur
 - Prominence Calculation: Calculates the prominence of identified peaks to assess their significance against the surrounding data. This helps in distinguishing meaningful peaks from noise or minor fluctuations.
 - FWHM Calculation: Computes the Full Width at Half Maximum of the peak, providing insights into the peak's sharpness and the underlying system's damping characteristics.
 - Efficient Searching: Utilizes a recursive divide-and-conquer approach to efficiently locate the peak, optimizing performance for large datasets.
+- Peak Continuation Identification. 
 
 ## Technical Overview of Peak Detection Methods
 - ### Peak Searching method:
 It employs a recursive method to divide the dataset and pinpoint the highest peak, significantly reducing the search time compared to linear scanning.
 
-- ### Edge Case Handling:
-The algorithm scrutinizes peaks near dataset boundaries using a first derivative approach to assess whether these peaks are ascending or have plateaued. By evaluating the rate of change in amplitude against a noise tolerance threshold, it distinguishes between true, continuing peaks and those that are merely artifacts or noise. This method ensures peaks that might extend beyond the analyzed segment are accurately identified, maintaining the integrity and comprehensiveness of the peak analysis.
+- ### Context-Specific Peak Relevance Criteria:
+In the context of impedance curves, the relevance of a peak is determined not just by its height but by its width (FWHM) and prominence. Indices corresponding to peaks with a narrow FWHM or low prominence, which may indicate less significant fluctuations or noise, are marked as ignored. If an evaluated peak does not meet the criteria of relevance — for instance, if it is deemed too narrow or not prominent enough — the algorithm efficiently moves on to the next potential peak without expending further computational resources on less relevant data points.
 
-- ### Ignored Indices:
-The algorithm incorporates a feature to ignore specific indices during the peak search process. The determination of an index's peak relevancy is largely based on the Full Width at Half Maximum (FWHM) of the peaks. Indices corresponding to peaks with a narrow FWHM, which may indicate less significant fluctuations or noise, can be marked as ignored. This selective approach ensures that the algorithm focuses on analyzing the most meaningful peaks within the dataset, improving both efficiency and accuracy.
-
-- ### Context-Specific Relevance Criteria:
-In the context of impedance curves, the relevance of a peak is determined not just by its height but by its width (FWHM) and prominence. These characteristics are essential in distinguishing meaningful peaks that represent significant phenomena from those that may result from noise or are too narrow to be of interest. If an evaluated peak does not meet the criteria of relevance — for instance, if it is deemed too narrow or not prominent enough — the algorithm efficiently moves on to the next potential peak without expending further computational resources on less relevant data points.
-
-- ### Optimized for Efficiency and Accuracy:
-This method significantly conserves computation time and enhances the efficiency of the peak finding process. It's particularly advantageous for analyzing large datasets or in applications where processing speed is critical, such as real-time monitoring or analysis of impedance-based sensors and devices. The algorithm's design to specifically address the nuances of impedance curves ensures that it can rapidly and accurately identify the most relevant peaks, facilitating precise analysis and interpretation of the data.
+- ### Evaluating Peak Continuation:
+The algorithm scrutinizes peaks near dataset boundaries using a first derivative approach to assess whether these peaks are ascending or have plateaued. By examining the change in amplitude and comparing it to a noise tolerance threshold, the algorithm discerns whether the peak is genuinely increasing or if it has reached its climax. This analysis helps determine if a peak's amplitude is still increasing, indicating the peak may reach its maximum in a subsequent dataset, or if it has plateaued, suggesting the peak's climax has been captured within the current dataset. This technique is crucial for ensuring comprehensive peak analysis across segmented datasets.
 
 ## Reference Lecture
 The peak finding algorithm implemented in this repository is inspired by the concepts discussed in the lecture by Srini Devadas on efficient algorithms for finding peaks in datasets. The lecture provides a comprehensive overview of the algorithmic approach to identifying peaks within a matrix and its applications in various fields.
