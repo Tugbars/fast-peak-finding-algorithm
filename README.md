@@ -22,3 +22,22 @@ The peak finding algorithm implemented in this repository is inspired by the con
 
 For a deeper understanding of the underlying principles and methodologies, you can watch the full lecture here: [Efficient Algorithms for Peak Finding - Srini Devadas](https://youtu.be/HtSuA80QTyo)
 
+## Handling Peak Detection Across Overlapping Arrays
+In addition to the primary peak finding algorithm, this repository includes a specialized C method designed to analyze impedance curves across two overlapping arrays, addressing the challenge of capturing peaks that occur at the overlap between these arrays. This method is particularly important for ensuring that no significant peaks are missed due to the segmentation of data across multiple arrays. The algorithm works by considering both arrays simultaneously, thereby enabling the detection of peaks that might not be fully captured within a single array segment.
+
+### Why This Extension Is Necessary
+Impedance curves, particularly those with a wide window of data points (e.g., 140 data points), often require a nuanced approach to peak detection. Peaks occurring near the boundary of two arrays may only be partially present in each, necessitating a method that can effectively 'stitch' these segments together for a comprehensive analysis. This extension to the peak finding algorithm precisely addresses this need, ensuring that peaks straddling the boundary between two arrays are accurately identified and analyzed.
+
+### How It Works
+The extended algorithm operates by merging the search space across both arrays, effectively treating them as a continuous dataset for the purpose of peak detection. It employs a modified version of the recursive peak finding method to navigate this combined dataset, adjusting its search based on the aggregated data. The algorithm takes into account the following considerations:
+
+Overlap Handling: It dynamically adjusts the search parameters to account for the overlap between arrays, ensuring that the algorithm can seamlessly transition from one array to the next without losing context.
+
+Ignored Indices: Similar to the single-array version, this extended algorithm supports the ignoring of specific indices that have already been evaluated or are deemed irrelevant, thereby optimizing the search process.
+
+Prominence Calculation: For peaks identified at the overlap, the algorithm calculates prominence by considering data points from both arrays, ensuring that the metric accurately reflects the peak's relative prominence within the combined dataset.
+
+FWHM Calculation: The Full Width at Half Maximum (FWHM) for peaks found at the overlap is also calculated across both arrays, providing a true measure of the peak's width irrespective of its position relative to the array boundary.
+
+### Practical Application
+This extension is particularly useful in scenarios where data is collected in segments, such as in real-time signal processing or when dealing with large datasets that must be partitioned for analysis. By ensuring that peaks at the boundaries between segments are not overlooked, this approach enhances the accuracy and comprehensiveness of the peak finding process.
