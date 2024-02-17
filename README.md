@@ -9,10 +9,10 @@ This peak finding algorithm is specifically designed for analyzing impedance cur
 - Efficient Searching: Utilizes a recursive divide-and-conquer approach to efficiently locate the peak, optimizing performance for large datasets.
 
 ## How It Works
-+Data Preparation: The algorithm expects data in the form of an array of MqsRawDataPoint_t structures, representing the impedance curve to be analyzed.
+- Data Preparation: The algorithm expects data in the form of an array of MqsRawDataPoint_t structures, representing the impedance curve to be analyzed.
 
-+Peak Searching: It employs a recursive method to divide the dataset and pinpoint the highest peak, significantly reducing the search time compared to linear scanning.
+- Peak Searching: It employs a recursive method to divide the dataset and pinpoint the highest peak, significantly reducing the search time compared to linear scanning.
 
-+Prominence and FWHM: Once the highest peak is identified, the algorithm calculates its prominence and FWHM to evaluate its physical and analytical relevance.
+- Prominence and FWHM: Once the highest peak is identified, the algorithm calculates its prominence and FWHM to evaluate its physical and analytical relevance.
 
-+Edge Case Handling: Special consideration is given to peaks at the dataset's boundaries, assessing whether a peak might continue beyond the current data range.
+- Edge Case Handling: Special consideration is given to peaks at the dataset's boundaries, assessing whether a peak might continue beyond the current data range.
