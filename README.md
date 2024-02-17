@@ -12,7 +12,8 @@ This peak finding algorithm is specifically designed for analyzing impedance cur
 - ### Peak Searching method:
 It employs a recursive method to divide the dataset and pinpoint the highest peak, significantly reducing the search time compared to linear scanning.
 
-- ### Edge Case Handling: The algorithm scrutinizes peaks near dataset boundaries using a first derivative approach to assess whether these peaks are ascending or have plateaued. By evaluating the rate of change in amplitude against a noise tolerance threshold, it distinguishes between true, continuing peaks and those that are merely artifacts or noise. This method ensures peaks that might extend beyond the analyzed segment are accurately identified, maintaining the integrity and comprehensiveness of the peak analysis.
+- ### Edge Case Handling:
+The algorithm scrutinizes peaks near dataset boundaries using a first derivative approach to assess whether these peaks are ascending or have plateaued. By evaluating the rate of change in amplitude against a noise tolerance threshold, it distinguishes between true, continuing peaks and those that are merely artifacts or noise. This method ensures peaks that might extend beyond the analyzed segment are accurately identified, maintaining the integrity and comprehensiveness of the peak analysis.
 
 - ### Ignored Indices:
 The algorithm incorporates a feature to ignore specific indices during the peak search process. The determination of an index's peak relevancy is largely based on the Full Width at Half Maximum (FWHM) of the peaks. Indices corresponding to peaks with a narrow FWHM, which may indicate less significant fluctuations or noise, can be marked as ignored. This selective approach ensures that the algorithm focuses on analyzing the most meaningful peaks within the dataset, improving both efficiency and accuracy.
