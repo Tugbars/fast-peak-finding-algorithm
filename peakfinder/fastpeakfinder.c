@@ -38,8 +38,6 @@
  */
 #define PEAK_THRESHOLD  30 
 
-
-
 /*!
  * @brief Calculates the prominence of a peak in a dataset.
  *
@@ -302,6 +300,7 @@ static bool isPeakClimbing(MqsRawDataPoint_t b[], int sizeB, int peakIndex, floa
     return failCount < 2; 
 }
 
+/*
 float calculateDampingRatio(float resonanceFrequency, float FWHM) {
     float dampingRatio = resonanceFrequency / (2 * M_PI * FWHM);
     return dampingRatio;
@@ -310,6 +309,7 @@ float calculateDampingRatio(float resonanceFrequency, float FWHM) {
 double lorentzian(double frequency, double peakHeight, double resonanceFrequency, double halfWidthAtHalfMaximum) {
     return (peakHeight / M_PI) * (halfWidthAtHalfMaximum / (pow(frequency - resonanceFrequency, 2) + pow(halfWidthAtHalfMaximum, 2)));
 }
+*/
 
 /*!
  * @brief Processes and validates a peak within a dataset.
@@ -425,8 +425,6 @@ int main() {
  
     return 0;
 }
-
-
 
 
 
