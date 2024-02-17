@@ -9,22 +9,22 @@ This peak finding algorithm is specifically designed for analyzing impedance cur
 - Efficient Searching: Utilizes a recursive divide-and-conquer approach to efficiently locate the peak, optimizing performance for large datasets.
 
 ## Technical Overview of Peak Detection Methods
-- Peak Searching method:
+- ### Peak Searching method:
 It employs a recursive method to divide the dataset and pinpoint the highest peak, significantly reducing the search time compared to linear scanning.
 
-- Prominence and FWHM
+- ### Prominence and FWHM:
 Once the highest peak is identified, the algorithm calculates its prominence and FWHM to evaluate its physical and analytical relevance.
 
-- Edge Case Handling
+- ### Edge Case Handling:
 Special consideration is given to peaks at the dataset's boundaries, assessing whether a peak might continue beyond the current data range.
 
-- Ignored Indices
+- ### Ignored Indices:
 The algorithm incorporates a feature to ignore specific indices during the peak search process. The determination of an index's peak relevancy is largely based on the Full Width at Half Maximum (FWHM) of the peaks. Indices corresponding to peaks with a narrow FWHM, which may indicate less significant fluctuations or noise, can be marked as ignored. This selective approach ensures that the algorithm focuses on analyzing the most meaningful peaks within the dataset, improving both efficiency and accuracy.
 
-- Context-Specific Relevance Criteria
+- ### Context-Specific Relevance Criteria:
 In the context of impedance curves, the relevance of a peak is determined not just by its height but by its width (FWHM) and prominence. These characteristics are essential in distinguishing meaningful peaks that represent significant phenomena from those that may result from noise or are too narrow to be of interest. If an evaluated peak does not meet the criteria of relevance — for instance, if it is deemed too narrow or not prominent enough — the algorithm efficiently moves on to the next potential peak without expending further computational resources on less relevant data points.
 
-- Optimized for Efficiency and Accuracy
+- Optimized for Efficiency and Accuracy:
 This method significantly conserves computation time and enhances the efficiency of the peak finding process. It's particularly advantageous for analyzing large datasets or in applications where processing speed is critical, such as real-time monitoring or analysis of impedance-based sensors and devices. The algorithm's design to specifically address the nuances of impedance curves ensures that it can rapidly and accurately identify the most relevant peaks, facilitating precise analysis and interpretation of the data.
 
 ## Reference Lecture
